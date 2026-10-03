@@ -1,0 +1,50 @@
+order of scripts i did yesterday
+
+#script (get_superfamily.py) 
+#input (interpro_results.tsv) 
+#output (SSF56672_sequences.fasta)
+
+#script (rename.py)
+#input (SSF56672_sequences.fasta)
+#output (named_seq.fasta)
+
+#realign scripts
+-clustalw -INFILE=named_seq.fasta -OUTFILE=clustalALN.fasta -OUTPUT=fasta
+
+-t_coffee -infile named_seq.fasta -output fasta_aln -outfile tcoffeeALN.fasta
+
+
+#script
+iqtree2 -s clustalALN.fasta -m MFP -bb 1000 -nt AUTO
+iqtree2 -s tcoffeeALN.fasta -m MFP -bb 1000 -nt AUTO
+
+used figtree v1.4.4 to visualize the .contree
+
+#versions
+
+IQ-TREE multicore version 2.3.6 for MacOS Intel 64-bit built Aug  4 2024
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor, Heiko Schmidt,
+Dominik Schrempf, Michael Woodhams, Ly Trong Nhan, Thomas Wong
+
+Python 3.12.2
+
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin23)
+Copyright (C) 2007 Free Software Foundation, Inc.
+
+Paysan-Lafosse T, Blum M, Chuguransky S, Grego T, Pinto BL, Salazar GA, Bileschi ML, Bork P, Bridge A, Colwell L, Gough J, Haft DH, Letunić I, Marchler-Bauer A, Mi H, Natale DA, Orengo CA, Pandurangan AP, Rivoire C, Sigrist CJA, Sillitoe I, Thanki N, Thomas PD, Tosatto SCE, Wu CH, Bateman A. InterPro in 2022. Nucleic Acids Research, Nov 2022, (doi: 10.1093/nar/gkac993)
+
+clustalw 2.1
+
+PROGRAM: T-COFFEE Version_12.00.7fb08c2 (2018-12-11 09:27:12 - Revision 7fb08c2 - Build 211)
+
+Biopython version: 1.84
+
+SeqIO is part of Biopython version: 1.84
+
+conda 24.11.0
+
+curl 8.8.0 (x86_64-apple-darwin13.4.0) libcurl/8.8.0 (SecureTransport) OpenSSL/3.4.0 zlib/1.2.13 zstd/1.5.6 libssh2/1.11.0 nghttp2/1.58.0
+Release-Date: 2024-05-22
+Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns mqtt pop3 pop3s rtsp scp sftp smb smbs smtp smtps telnet tftp ws wss
+Features: alt-svc AsynchDNS GSS-API HSTS HTTP2 HTTPS-proxy IPv6 Kerberos Largefile libz MultiSSL NTLM SPNEGO SSL threadsafe TLS-SRP UnixSockets zstd
+
