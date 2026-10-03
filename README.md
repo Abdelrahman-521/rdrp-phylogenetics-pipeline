@@ -42,4 +42,4 @@ iqtree2 -s clustalALN.fasta -m MFP -bb 1000 -nt AUTO
 Bash · Python · Biopython · NCBI E-utilities · ClustalW · T-Coffee · IQ-TREE 2 · InterPro · Nextflow · FigTree
 
 ## Credits
-Built as a team project. I worked on the download, repair and alignment scripts and the tree-building runs. Thanks to my teammates and the course instructors.
+Built as a team project. My steps are logged in [`docs/pipeline_order_and_versions.txt`](docs/pipeline_order_and_versions.txt): the InterPro superfamily filter, renaming, the ClustalW and T-Coffee re-alignments, and the IQ-TREE runs. Thanks to my teammates and the course instructors.
