@@ -35,7 +35,7 @@ flowchart LR
     I --> J
 ```
 
-- **Resilient downloads.** NCBI calls back off and retry, and Nextflow retries the step up to three times. Three of the paper's accessions are nucleotide records, so the repair step fetches their translated CDS from `nuccore`, then fails loudly if anything is still missing instead of quietly building a tree from fewer viruses.
+- **Resilient downloads.** NCBI calls back off and retry, and Nextflow retries the step up to three times. Three of the paper's accessions are nucleotide records, so the repair step fetches their translated CDS from `nuccore`, then stops with a clear message if anything is still missing, so every tree always has all 38 viruses.
 - **Parallel by design.** The two aligners, and then the two IQ-TREE runs, run side by side.
 - **Reproducible.** A fixed IQ-TREE seed, the tool versions in `environment.yml`, and a Nextflow timeline, trace and run report written for every run (`results/pipeline_info/`).
 - **Tested.** 19 unit tests for the Python steps, using fake NCBI responses. GitHub Actions also runs the whole pipeline twice on every push: an offline test from the bundled sequences, and a full run that downloads from NCBI.
@@ -70,19 +70,18 @@ Useful options: `--bootstraps 1000`, `--seed 20241125`, `--iqtree_extra '-mset L
 | `course_version/` | The original course scripts and results, unchanged |
 | `docs/` | Project plan, proposal slides and the final presentation |
 
-## History: course project, then the rebuild
+## History: from course project to automated pipeline
 
 **Fall 2024, COMP 3550 / BIOL 3951 (Bioinformatics), Memorial University.** A team of three: Abdelrahman Conber, Claire Gallant and Haley Leonard. The plan ([`docs/project_plan.pdf`](docs/project_plan.pdf)) was to re-run the alignment from a 2018 paper on CuPV-1, a picorna-like virus found in Culex mosquitoes, swapping ClustalW for T-Coffee and automating the steps with Nextflow.
 
-- Our ClustalW tree didn't match the paper's. The paper didn't report enough detail to reproduce it: the MEGA version, the tree type, the alignment settings.
-- So we switched approach: InterPro to find the RdRp domain, both aligners on that domain, and IQ-TREE for the trees ([final presentation](docs/project_presentation.pdf), [proposal slides](docs/proposal_presentation.pdf)).
-- The steps were run by hand, script by script. Nextflow only got as far as a "Hello World" test, and "integrate the pipeline into Nextflow" was on our final slide as future work.
+- The paper didn't report enough detail (MEGA version, tree type, alignment settings) to reproduce its exact tree, so we adapted the approach: InterPro to find the RdRp domain, both aligners on that domain, and IQ-TREE for the trees ([final presentation](docs/project_presentation.pdf), [proposal slides](docs/proposal_presentation.pdf)).
+- The pipeline ran step by step from the command line and produced both trees. Automating it end to end in Nextflow was the next step on our final slide.
 
 I wrote the course version's Python scripts: `checkerrors.py` (download repair), `get_superfamily.py`, `rename.py`, `trimseqs.py` and `cleanrdrp.py`. I also ran the InterPro filtering, the re-alignments and the IQ-TREE runs. Everything from the course is kept unchanged in [`course_version/`](course_version/).
 
-**October 2026: the future work, done.** I turned it into a real Nextflow pipeline, building it with Claude Code as a pair programmer:
+**October 2026: automating it.** After graduating I took it upon myself to finish what we had planned. Using agentic automation, with my course scripts as the starting point, I directed an AI coding agent (Claude Code) to turn the project into a complete Nextflow pipeline:
 
-- my scripts became parameterised CLI steps, with checks that fail loudly
+- my scripts became the pipeline's steps, with command-line options and input checks
 - the regions and virus names moved out of the code into data files
 - the quantitative tree comparison is new (Robinson-Foulds distance, bootstrap support, closest-relative changes, tanglegram)
 - unit tests and CI are new

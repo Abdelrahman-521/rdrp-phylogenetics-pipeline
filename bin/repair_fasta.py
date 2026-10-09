@@ -6,8 +6,8 @@ Pipeline version of the course's checkerrors.py, which Abdel wrote:
   2. find which accessions are still missing,
   3. fetch those from the nucleotide database (nuccore) as translated CDS,
      because some of the paper's accessions are nucleotide records,
-  4. fail loudly if anything is still missing, so the workflow can retry
-     instead of quietly building a tree from fewer sequences.
+  4. stop with a clear message if anything is still missing, so the workflow
+     can retry and every tree has all the viruses.
 """
 
 import argparse

@@ -13,8 +13,8 @@ The scripts exactly as they were at the end of COMP 3550 / BIOL 3951. The team r
 | 7 | IQ-TREE 2.3.6 | One maximum-likelihood tree per alignment (`results/iqtree/`) |
 | 8 | FigTree | Compared the two trees by eye |
 
-`trimseqs.py`, `cleanrdrp.py`, `clustal.sh` and the two `results/rdrp_*_aligned.fasta` files are from the first plan: re-doing the CuPV-1 paper's MEGA analysis on a consensus-trimmed region. Our ClustalW tree didn't match the paper's, so the team moved to the InterPro domain approach above.
+`trimseqs.py`, `cleanrdrp.py`, `clustal.sh` and the two `results/rdrp_*_aligned.fasta` files are from the first plan: re-doing the CuPV-1 paper's MEGA analysis on a consensus-trimmed region. The paper didn't report enough detail to reproduce its exact tree, so the team moved to the InterPro domain approach above.
 
-`main.nf` and `nextflow.config` were a Nextflow "Hello World" test. Wiring the steps into Nextflow was listed as future work on the final slide; it's done now in the top-level `main.nf`.
+`main.nf` and `nextflow.config` were our first Nextflow setup. Wiring every step into Nextflow was the next step on our final slide; that's now the top-level `main.nf`.
 
 I (Abdelrahman Conber) wrote the Python scripts here. Team: Abdelrahman Conber, Claire Gallant and Haley Leonard.
