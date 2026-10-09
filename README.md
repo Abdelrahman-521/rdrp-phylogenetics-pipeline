@@ -26,7 +26,7 @@ Exact commands and tool versions are in [`docs/pipeline_order_and_versions.txt`]
 
 - Alignments: `results/rdrp_clustal_aligned.fasta`, `results/rdrp_tcoffee_aligned.fasta`
 - IQ-TREE reports and Newick trees: `results/iqtree/`
-- Slides: [final presentation](docs/project_presentation.pdf) and [proposal](docs/proposal_presentation.pdf)
+- Slides and plan: [final presentation (Prezi export)](docs/project_presentation.pdf), [proposal slides](docs/proposal_presentation.pdf) and the [project plan](docs/project_plan.pdf) with the original pipeline flowchart, goals and methods
 
 ## Run it
 
