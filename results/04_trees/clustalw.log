@@ -1,0 +1,179 @@
+IQ-TREE multicore version 2.0.7 for Linux 64-bit built Apr  1 2024
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    vm (AVX512, FMA3, 7 GB RAM)
+Command: iqtree2 -s clustalw_aligned.fasta --prefix clustalw -m MFP -mset LG,WAG,JTT -bb 1000 -nt 2 -seed 20241125 -redo -quiet
+Seed:    20241125 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Oct  9 14:14:49 2026
+Kernel:  AVX+FMA - 2 threads (2 CPU cores detected)
+
+Reading alignment file clustalw_aligned.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 38 sequences with 634 columns, 627 distinct patterns
+525 parsimony-informative, 83 singleton sites, 26 constant sites
+         Gap/Ambiguity  Composition  p-value
+   1  CPMV      22.24%    passed     33.89%
+   2  PYFV      18.30%    passed      8.35%
+   3  HaRNAV    29.97%    passed     70.10%
+   4  PV        27.60%    passed     64.33%
+   5  FMDV      26.97%    passed     66.68%
+   6  EMCV      28.39%    failed      2.31%
+   7  HRV       28.08%    passed     28.36%
+   8  SBPV      19.56%    failed      1.41%
+   9  BrBV      21.14%    passed     86.68%
+  10  DWV       19.87%    passed     87.30%
+  11  VDV-1     19.56%    passed     68.87%
+  12  EoV       24.29%    passed     78.02%
+  13  KV        19.72%    passed     94.01%
+  14  ALPV      20.03%    passed     79.01%
+  15  PnV       24.45%    passed     86.07%
+  16  BQCV      23.03%    passed     35.60%
+  17  CrPV      17.19%    passed     40.40%
+  18  ABPV      19.72%    passed     21.47%
+  19  TrV       19.24%    passed     86.70%
+  20  HiPV      21.14%    passed      5.64%
+  21  SBV       19.72%    passed     52.07%
+  22  PSIV      21.29%    passed     50.33%
+  23  DCV       18.14%    passed     70.22%
+  24  RhPV      18.45%    passed     73.83%
+  25  IFV       21.92%    passed     95.17%
+  26  HplV-35   10.88%    passed     84.48%
+  27  HplV-34   15.14%    passed     11.60%
+  28  HuAV_1    18.45%    failed      2.12%
+  29  LniV-1    23.50%    passed      9.75%
+  30  ShiV-8    21.45%    passed     60.01%
+  31  SINV-4    21.14%    passed     78.88%
+  32  SINV-2    23.50%    passed     93.62%
+  33  HplV-81   20.19%    passed     34.01%
+  34  TSV       23.82%    passed     97.43%
+  35  MCDV      24.76%    passed     89.31%
+  36  CuPV-1    11.83%    passed     73.60%
+  37  AaIFV     22.87%    passed     23.92%
+  38  MV        21.14%    passed     53.12%
+****  TOTAL     21.28%  3 sequences failed composition chi2 test (p-value<5%; df=19)
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.022 seconds
+Perform fast likelihood tree search using LG+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -36697.455
+Optimal log-likelihood: -36697.155
+Proportion of invariable sites: 0.010
+Gamma shape alpha: 1.484
+Parameters optimization took 1 rounds (0.112 sec)
+Time for fast ML tree search: 1.571 seconds
+
+NOTE: ModelFinder requires 40 MB RAM!
+ModelFinder will test up to 78 protein models (sample size: 634) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  LG            37711.961    73  75569.921    75589.214    75894.921
+  2  LG+I          37614.174    74  75376.348    75396.205    75705.800
+  3  LG+G4         36707.577    74  73563.155    73583.012    73892.606
+  4  LG+I+G4       36697.169    75  73544.337    73564.767    73878.241
+  5  LG+R2         36855.989    75  73861.978    73882.408    74195.882
+  6  LG+R3         36672.945    77  73499.889    73521.494    73842.697
+  7  LG+R4         36646.969    79  73451.939    73474.754    73803.650
+  8  LG+R5         36639.069    81  73440.138    73464.203    73800.754
+  9  LG+R6         36638.102    83  73442.205    73467.557    73811.725
+ 20  LG+F+R4       36577.942    98  73351.885    73388.154    73788.186
+ 21  LG+F+R5       36569.705    100 73339.410    73377.309    73784.615
+ 33  WAG+R4        36756.974    79  73671.948    73694.763    74023.659
+ 34  WAG+R5        36753.140    81  73668.281    73692.346    74028.897
+ 46  WAG+F+R4      36633.699    98  73463.398    73499.667    73899.699
+ 47  WAG+F+R5      36628.959    100 73457.918    73495.816    73903.122
+ 59  JTT+R4        37125.172    79  74408.345    74431.160    74760.056
+ 60  JTT+R5        37122.828    81  74407.655    74431.721    74768.271
+ 72  JTT+F+R4      37029.342    98  74254.684    74290.953    74690.984
+ 73  JTT+F+R5      37026.026    100 74252.053    74289.952    74697.258
+Akaike Information Criterion:           LG+F+R5
+Corrected Akaike Information Criterion: LG+F+R5
+Bayesian Information Criterion:         LG+F+R5
+Best-fit model: LG+F+R5 chosen according to BIC
+
+All model information printed to clustalw.model.gz
+CPU time for ModelFinder: 77.076 seconds (0h:1m:17s)
+Wall-clock time for ModelFinder: 39.577 seconds (0h:0m:39s)
+Generating 1000 samples for ultrafast bootstrap (seed: 20241125)...
+
+NOTE: 21 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -36569.705
+Optimal log-likelihood: -36569.699
+Site proportion and rates:  (0.053,0.060) (0.100,0.247) (0.313,0.580) (0.331,1.202) (0.204,1.930)
+Parameters optimization took 1 rounds (0.369 sec)
+Computing ML distances based on estimated model parameters... 0.168 sec
+Computing BIONJ tree...
+0.001 seconds
+Log-likelihood of BIONJ tree: -36581.015
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.866 second
+Computing log-likelihood of 98 initial trees ... 5.275 seconds
+Current best score: -36569.699
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -36569.132
+Iteration 10 / LogL: -36569.999 / Time: 0h:0m:16s
+Iteration 20 / LogL: -36571.047 / Time: 0h:0m:25s
+Finish initializing candidate tree set (4)
+Current best tree score: -36569.132 / CPU time: 24.985
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -36570.125 / Time: 0h:0m:35s (0h:1m:26s left)
+Iteration 40 / LogL: -36569.301 / Time: 0h:0m:46s (0h:1m:13s left)
+Iteration 50 / LogL: -36569.327 / Time: 0h:0m:56s (0h:0m:58s left)
+Log-likelihood cutoff on original alignment: -36601.395
+Iteration 60 / LogL: -36659.922 / Time: 0h:1m:7s (0h:0m:46s left)
+Iteration 70 / LogL: -36571.660 / Time: 0h:1m:17s (0h:0m:35s left)
+Iteration 80 / LogL: -36569.656 / Time: 0h:1m:27s (0h:0m:23s left)
+Iteration 90 / LogL: -36569.436 / Time: 0h:1m:37s (0h:0m:12s left)
+Iteration 100 / LogL: -36569.566 / Time: 0h:1m:47s (0h:0m:1s left)
+Log-likelihood cutoff on original alignment: -36601.395
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.999
+TREE SEARCH COMPLETED AFTER 102 ITERATIONS / Time: 0h:1m:49s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -36569.132
+Optimal log-likelihood: -36569.124
+Site proportion and rates:  (0.045,0.045) (0.102,0.229) (0.316,0.575) (0.331,1.197) (0.205,1.929)
+Parameters optimization took 1 rounds (0.627 sec)
+BEST SCORE FOUND : -36569.124
+Creating bootstrap support values...
+Split supports printed to NEXUS file clustalw.splits.nex
+Total tree length: 39.792
+
+Total number of iterations: 102
+CPU time used for tree search: 213.234 sec (0h:3m:33s)
+Wall-clock time used for tree search: 108.875 sec (0h:1m:48s)
+Total CPU time used: 215.998 sec (0h:3m:35s)
+Total wall-clock time used: 110.338 sec (0h:1m:50s)
+
+Computing bootstrap consensus tree...
+Reading input file clustalw.splits.nex...
+38 taxa and 164 splits.
+Consensus tree written to clustalw.contree
+Reading input trees file clustalw.contree
+Log-likelihood of consensus tree: -36570.433
+
+Analysis results written to: 
+  IQ-TREE report:                clustalw.iqtree
+  Maximum-likelihood tree:       clustalw.treefile
+  Likelihood distances:          clustalw.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          clustalw.splits.nex
+  Consensus tree:                clustalw.contree
+  Screen log file:               clustalw.log
+
+Date and Time: Fri Oct  9 14:17:19 2026

@@ -1,0 +1,190 @@
+IQ-TREE multicore version 2.0.7 for Linux 64-bit built Apr  1 2024
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    vm (AVX512, FMA3, 7 GB RAM)
+Command: iqtree2 -s tcoffee_aligned.fasta --prefix tcoffee -m MFP -mset LG,WAG,JTT -bb 1000 -nt 2 -seed 20241125 -redo -quiet
+Seed:    20241125 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Fri Oct  9 14:17:19 2026
+Kernel:  AVX+FMA - 2 threads (2 CPU cores detected)
+
+Reading alignment file tcoffee_aligned.fasta ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 38 sequences with 697 columns, 678 distinct patterns
+504 parsimony-informative, 96 singleton sites, 97 constant sites
+         Gap/Ambiguity  Composition  p-value
+   1  CPMV      29.27%    passed     33.90%
+   2  PYFV      25.68%    passed      8.35%
+   3  HaRNAV    36.30%    passed     70.11%
+   4  PV        34.15%    passed     64.33%
+   5  FMDV      33.57%    passed     66.68%
+   6  EMCV      34.86%    failed      2.30%
+   7  HRV       34.58%    passed     28.36%
+   8  SBPV      26.83%    failed      1.41%
+   9  BrBV      28.26%    passed     86.68%
+  10  DWV       27.12%    passed     87.31%
+  11  VDV-1     26.83%    passed     68.88%
+  12  EoV       31.13%    passed     78.03%
+  13  KV        26.97%    passed     94.01%
+  14  ALPV      27.26%    passed     79.02%
+  15  PnV       31.28%    passed     86.07%
+  16  BQCV      29.99%    passed     35.60%
+  17  CrPV      24.68%    passed     40.40%
+  18  ABPV      26.97%    passed     21.47%
+  19  TrV       26.54%    passed     86.70%
+  20  HiPV      28.26%    passed      5.64%
+  21  SBV       26.97%    passed     52.07%
+  22  PSIV      28.41%    passed     50.32%
+  23  DCV       25.54%    passed     70.23%
+  24  RhPV      25.82%    passed     73.84%
+  25  IFV       28.98%    passed     95.17%
+  26  HplV-35   18.94%    passed     84.48%
+  27  HplV-34   22.81%    passed     11.60%
+  28  HuAV_1    25.82%    failed      2.12%
+  29  LniV-1    30.42%    passed      9.75%
+  30  ShiV-8    28.55%    passed     60.01%
+  31  SINV-4    28.26%    passed     78.88%
+  32  SINV-2    30.42%    passed     93.62%
+  33  HplV-81   27.40%    passed     34.02%
+  34  TSV       30.70%    passed     97.43%
+  35  MCDV      31.56%    passed     89.31%
+  36  CuPV-1    19.80%    passed     73.60%
+  37  AaIFV     29.84%    passed     23.92%
+  38  MV        28.26%    passed     53.13%
+****  TOTAL     28.40%  3 sequences failed composition chi2 test (p-value<5%; df=19)
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.010 seconds
+Perform fast likelihood tree search using LG+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -36304.663
+Optimal log-likelihood: -36304.559
+Proportion of invariable sites: 0.016
+Gamma shape alpha: 1.504
+Parameters optimization took 1 rounds (0.149 sec)
+Time for fast ML tree search: 1.459 seconds
+
+NOTE: ModelFinder requires 43 MB RAM!
+ModelFinder will test up to 78 protein models (sample size: 697) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  LG            37352.949    73  74851.899    74869.241    75183.814
+  2  LG+I          37198.481    74  74544.961    74562.807    74881.423
+  3  LG+G4         36324.307    74  72796.615    72814.461    73133.077
+  4  LG+I+G4       36304.545    75  72759.089    72777.447    73100.098
+  5  LG+R2         36489.496    75  73128.992    73147.350    73470.001
+  6  LG+R3         36300.620    77  72755.240    72774.646    73105.343
+  7  LG+R4         36261.409    79  72680.818    72701.304    73040.014
+  8  LG+R5         36249.523    81  72661.046    72682.646    73029.335
+  9  LG+R6         36245.116    83  72656.232    72678.979    73033.615
+ 21  LG+F+R5       36184.746    100 72569.491    72603.384    73024.170
+ 22  LG+F+R6       36183.878    102 72571.757    72607.131    73035.529
+ 34  WAG+R5        36371.945    81  72905.891    72927.491    73274.181
+ 35  WAG+R6        36368.313    83  72902.627    72925.374    73280.010
+ 47  WAG+F+R5      36255.719    100 72711.438    72745.331    73166.117
+ 48  WAG+F+R6      36252.099    102 72708.198    72743.572    73171.971
+ 60  JTT+R5        36750.987    81  73663.974    73685.574    74032.264
+ 61  JTT+R6        36742.580    83  73651.160    73673.907    74028.543
+ 73  JTT+F+R5      36661.368    100 73522.737    73556.629    73977.415
+ 74  JTT+F+R6      36654.249    102 73512.498    73547.872    73976.270
+Akaike Information Criterion:           LG+F+R5
+Corrected Akaike Information Criterion: LG+F+R5
+Bayesian Information Criterion:         LG+F+R5
+Best-fit model: LG+F+R5 chosen according to BIC
+
+All model information printed to tcoffee.model.gz
+CPU time for ModelFinder: 191.498 seconds (0h:3m:11s)
+Wall-clock time for ModelFinder: 97.531 seconds (0h:1m:37s)
+Generating 1000 samples for ultrafast bootstrap (seed: 20241125)...
+
+NOTE: 23 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -36184.746
+Optimal log-likelihood: -36184.737
+Site proportion and rates:  (0.046,0.033) (0.094,0.219) (0.291,0.538) (0.360,1.112) (0.208,2.022)
+Parameters optimization took 1 rounds (0.639 sec)
+Computing ML distances based on estimated model parameters... 0.150 sec
+Computing BIONJ tree...
+0.001 seconds
+Log-likelihood of BIONJ tree: -36198.697
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.898 second
+Computing log-likelihood of 98 initial trees ... 5.663 seconds
+Current best score: -36184.737
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -36184.365
+Iteration 10 / LogL: -36184.945 / Time: 0h:0m:17s
+Estimate model parameters (epsilon = 0.100)
+UPDATE BEST LOG-LIKELIHOOD: -36184.084
+Iteration 20 / LogL: -36184.887 / Time: 0h:0m:31s
+Finish initializing candidate tree set (6)
+Current best tree score: -36184.084 / CPU time: 30.331
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 21: -36172.806
+BETTER TREE FOUND at iteration 30: -36172.806
+Iteration 30 / LogL: -36172.806 / Time: 0h:0m:46s (0h:2m:38s left)
+Iteration 40 / LogL: -36172.836 / Time: 0h:0m:57s (0h:2m:12s left)
+Iteration 50 / LogL: -36172.940 / Time: 0h:1m:7s (0h:1m:50s left)
+Log-likelihood cutoff on original alignment: -36212.964
+UPDATE BEST LOG-LIKELIHOOD: -36172.802
+Iteration 60 / LogL: -36173.408 / Time: 0h:1m:19s (0h:1m:34s left)
+Iteration 70 / LogL: -36173.415 / Time: 0h:1m:30s (0h:1m:18s left)
+Iteration 80 / LogL: -36178.451 / Time: 0h:1m:41s (0h:1m:4s left)
+Iteration 90 / LogL: -36173.459 / Time: 0h:1m:52s (0h:0m:50s left)
+UPDATE BEST LOG-LIKELIHOOD: -36172.800
+Iteration 100 / LogL: -36173.603 / Time: 0h:2m:4s (0h:0m:37s left)
+Log-likelihood cutoff on original alignment: -36212.964
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 1.000
+Iteration 110 / LogL: -36173.055 / Time: 0h:2m:16s (0h:1m:52s left)
+Iteration 120 / LogL: -36176.266 / Time: 0h:2m:28s (0h:1m:39s left)
+Iteration 130 / LogL: -36172.835 / Time: 0h:2m:40s (0h:1m:26s left)
+TREE SEARCH COMPLETED AFTER 131 ITERATIONS / Time: 0h:2m:41s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -36172.800
+2. Current log-likelihood: -36172.777
+Optimal log-likelihood: -36172.773
+Site proportion and rates:  (0.043,0.030) (0.092,0.203) (0.298,0.531) (0.376,1.140) (0.190,2.066)
+Parameters optimization took 2 rounds (1.275 sec)
+BEST SCORE FOUND : -36172.773
+Creating bootstrap support values...
+Split supports printed to NEXUS file tcoffee.splits.nex
+Total tree length: 38.496
+
+Total number of iterations: 131
+CPU time used for tree search: 313.890 sec (0h:5m:13s)
+Wall-clock time used for tree search: 160.038 sec (0h:2m:40s)
+Total CPU time used: 318.782 sec (0h:5m:18s)
+Total wall-clock time used: 162.588 sec (0h:2m:42s)
+
+Computing bootstrap consensus tree...
+Reading input file tcoffee.splits.nex...
+38 taxa and 170 splits.
+Consensus tree written to tcoffee.contree
+Reading input trees file tcoffee.contree
+Log-likelihood of consensus tree: -36172.928
+
+Analysis results written to: 
+  IQ-TREE report:                tcoffee.iqtree
+  Maximum-likelihood tree:       tcoffee.treefile
+  Likelihood distances:          tcoffee.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          tcoffee.splits.nex
+  Consensus tree:                tcoffee.contree
+  Screen log file:               tcoffee.log
+
+Date and Time: Fri Oct  9 14:21:40 2026

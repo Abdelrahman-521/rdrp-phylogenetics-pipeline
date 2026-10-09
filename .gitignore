@@ -4,3 +4,7 @@ __pycache__/
 work/
 .nextflow*
 *.mov
+results_test/
+results_full/
+results/pipeline_info/
+.pytest_cache/

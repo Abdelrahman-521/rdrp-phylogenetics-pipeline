@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install biopython matplotlib pytest
+      - run: pytest -q tests
+
+  pipeline:
+    needs: unit-tests
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: offline test (bundled domains)
+            profile: local,test
+            outdir: results_test
+          - name: full run (download from NCBI)
+            profile: local
+            outdir: results
+    name: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: nf-core/setup-nextflow@v2
+        with:
+          version: "24.10.4"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install aligners and IQ-TREE
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq clustalw t-coffee iqtree
+          pip install biopython matplotlib
+      - name: Run PhyloBot
+        env:
+          NXF_ANSI_LOG: "false"
+        run: nextflow run . -profile ${{ matrix.profile }} --outdir ${{ matrix.outdir }}
+      - name: Show the comparison
+        run: cat ${{ matrix.outdir }}/comparison/comparison.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phylobot-${{ matrix.outdir }}
+          path: ${{ matrix.outdir }}

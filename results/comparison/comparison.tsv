@@ -1,0 +1,11 @@
+metric	ClustalW	T-Coffee
+sequences	38	38
+columns	634	697
+gap_fraction	0.21264320106259338	0.2838103148833346
+mean_pairwise_identity	0.24434313397057414	0.2566108292459109
+best_model	LG+F+R5	LG+F+R5
+log_likelihood	-36569.124	-36172.7734
+informative_sites	525	504
+iqtree_version	2.0.7	2.0.7
+robinson_foulds	12	12
+robinson_foulds_normalised	0.1714	0.1714

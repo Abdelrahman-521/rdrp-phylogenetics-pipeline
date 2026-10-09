@@ -1,0 +1,12 @@
+name: phylobot
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.12
+  - biopython=1.84
+  - matplotlib
+  - pytest
+  - clustalw=2.1
+  - t-coffee
+  - iqtree=2.3.6
